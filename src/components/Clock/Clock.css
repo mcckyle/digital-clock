@@ -1,0 +1,23 @@
+/* Filename: Clock.css */
+.clock { text-align: center; user-select: none; }
+.time { display: flex; align-items: flex-end; justify-content: center; gap: 16px; }
+.hours-minutes
+{
+    font-size: clamp(6rem, 20vw, 40rem);
+    font-weight: 600;
+    letter-spacing: -2px;
+}
+.seconds
+{
+    font-size: clamp(32px, 4vw, 56px);
+    color: var(--accent);
+    transform: translateY(-10%);
+    opacity: 0.85;
+}
+.date
+{
+    margin-top: 24px;
+    font-size: clamp(16px, 2vw, 28px);
+    color: var(--muted);
+    letter-spacing: 0.5px;
+}
