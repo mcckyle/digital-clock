@@ -110,24 +110,25 @@ export default function Clock()
 {
   const [now, setNow] = useState(new Date());
   const { time, period } = formatTime(now);
+  const [background, setBackground] = useState(getBackgroundGradient(now));
 
   useEffect(() => {
-    let timeout;
-    const tick = () => {
-      const next = new Date();
-      setNow(next);
+    const interval = setInterval(() => {
+      const current = new Date();
+      setNow(current);
 
-      //Align updates exactly to the next second boundary.
-      const delay = 1000 - next.getMilliseconds();
-      timeout = setTimeout(tick, delay);
-    };
+      //Update gradient less often (every ~5 seconds).
+      if (current.getSeconds() % 5 === 0)
+      {
+        setBackground(getBackgroundGradient(current));
+      }
+    }, 250);
 
-    tick();
-    return () => clearTimeout(timeout);
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="clock" style={{ background: getBackgroundGradient(now) }}>
+    <div className="clock" style={{ background }}>
       <div className="time">
         <span className="hours-minutes">{time}</span>
         <span className="seconds">{formatSeconds(now)}</span>
