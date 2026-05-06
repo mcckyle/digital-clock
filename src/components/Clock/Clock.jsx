@@ -117,8 +117,8 @@ export default function Clock()
       const current = new Date();
       setNow(current);
 
-      //Update gradient less often (every ~5 seconds).
-      if (current.getSeconds() % 5 === 0)
+      //Update gradient less often (every ~10 seconds).
+      if (current.getSeconds() % 10 === 0)
       {
         setBackground(getBackgroundGradient(current));
       }
