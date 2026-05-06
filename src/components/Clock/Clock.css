@@ -23,7 +23,7 @@
 }
 .hours-minutes
 {
-    font-size: clamp(6rem, 30vw, 60rem);
+    font-size: clamp(6rem, 25vw, 50rem);
     font-weight: 600;
     letter-spacing: -0.03em;
     line-height: 1;
