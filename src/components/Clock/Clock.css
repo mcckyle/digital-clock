@@ -1,23 +1,60 @@
-/* Filename: Clock.css */
-.clock { text-align: center; user-select: none; }
-.time { display: flex; align-items: flex-end; justify-content: center; gap: 16px; }
+/* Filename: src/components/Clock/Clock.css */
+.clock
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    text-align: center;
+    user-select: none;
+
+    transition: background 8s linear;
+}
+.time
+{
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: clamp(12px, 2vw, 24px);
+}
 .hours-minutes
 {
-    font-size: clamp(6rem, 20vw, 40rem);
+    font-size: clamp(6rem, 30vw, 60rem);
     font-weight: 600;
-    letter-spacing: -2px;
+    letter-spacing: -0.03em;
+    line-height: 1;
+
+    text-shadow: 0 0 24px rgba(255, 255, 255, 0.04);
 }
 .seconds
 {
-    font-size: clamp(32px, 4vw, 56px);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 500;
+
     color: var(--accent);
-    transform: translateY(-10%);
     opacity: 0.85;
+    margin-bottom: 0.2em;
+
+    transition: opacity 0.2s ease;
+}
+.period
+{
+    font-size: clamp(1.2rem, 2vw, 2rem);
+    color: var(--muted);
+    margin-left: 0.4em;
+    margin-bottom: 0.4em;
+    letter-spacing: 0.08em;
 }
 .date
 {
-    margin-top: 24px;
-    font-size: clamp(16px, 2vw, 28px);
+    margin-top: clamp(16px, 2vh, 32px);
+    font-size: clamp(0.9rem, 1.6vw, 1.6rem);
+    font-weight: 400;
+    letter-spacing: 0.04em;
     color: var(--muted);
-    letter-spacing: 0.5px;
+    opacity: 0.9;
 }
